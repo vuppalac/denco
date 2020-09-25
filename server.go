@@ -36,6 +36,16 @@ func (m *Mux) HEAD(path string, handler HandlerFunc) Handler {
 	return m.Handler("HEAD", path, handler)
 }
 
+// PATCH is shorthand of Mux.Handler("PATCH", path, handler).
+func (m *Mux) PATCH(path string, handler HandlerFunc) Handler {
+	return m.Handler("PATCH", path, handler)
+}
+
+// DELETE is shorthand of Mux.Handler("DELETE", path, handler).
+func (m *Mux) DELETE(path string, handler HandlerFunc) Handler {
+	return m.Handler("DELETE", path, handler)
+}
+
 // Handler returns a handler for HTTP method.
 func (m *Mux) Handler(method, path string, handler HandlerFunc) Handler {
 	return Handler{
